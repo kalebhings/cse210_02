@@ -20,6 +20,20 @@ namespace cse210_02
         
         public void StartGame()
         {
+            while (isPlaying && score > 0)
+            {
+                GetInput();
+                DrawCards();
+                CheckGuess();
+            }
+            if (!isPlaying)
+            {
+                Console.WriteLine($"Your total score is {score}");
+            }
+            else if (score <= 0)
+            {
+                Console.WriteLine($"You are out of points, you lost.");
+            }
 
         }
 
@@ -76,7 +90,7 @@ namespace cse210_02
                 }
                 else
                 {
-                    Console.WriteLine("Invalid answer, please try again today");
+                    Console.WriteLine("Invalid answer, please try again");
                     invalidAnswer = true;
                 }
             } while (invalidAnswer);
